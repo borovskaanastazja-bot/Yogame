@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-bg-light: #D6E0F7;
+  --color-accent: #97B6FF;
+  --color-dark: #1a1a2e;
+  --color-hero-bg: #eef2fb;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-bg-light text-dark overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .watermark-text {
+    @apply text-[clamp(80px,15vw,200px)] text-accent opacity-15 font-black absolute pointer-events-none z-0 whitespace-nowrap select-none;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-r from-accent to-[#7a9fe8] text-white rounded-full px-8 py-3.5 text-base font-medium cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-accent/30 active:scale-95 border-none;
+  }
+
+  .btn-outline {
+    @apply bg-accent/10 text-dark rounded-full px-8 py-3.5 text-base font-medium cursor-pointer transition-all duration-300 hover:bg-linear-to-r hover:from-accent hover:to-[#7a9fe8] hover:text-white active:scale-95;
+  }
+
+  .pricing-card {
+    @apply bg-white rounded-[20px] p-8 shadow-[0_4px_20px_rgba(151,182,255,0.15)] transition-all duration-300;
+  }
+
+  .pricing-card.featured {
+    @apply bg-linear-to-br from-accent to-[#7a9fe8] text-white scale-105 shadow-xl;
+  }
+
+  .review-card {
+    @apply bg-white rounded-2xl p-6 shadow-[0_2px_15px_rgba(151,182,255,0.2)] transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .faq-item {
+    @apply border-b border-accent/30 py-5;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #97B6FF;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7a9fe8;
+}
